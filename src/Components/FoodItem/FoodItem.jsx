@@ -1,14 +1,19 @@
 import React, { useContext } from 'react'
 import './FoodItem.css'
 import { assets } from '../../assets/assets'
-import { StoreContext } from '../../context/StoreContext';
 import { FaLeaf } from "react-icons/fa";
 import { GiChickenOven } from "react-icons/gi";
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, decrement } from '../../redux-tookit/CartSlice';
+import {toast } from 'react-toastify';
+
 
 export default function FoodItem({id , name , price , description ,image , type}) {
  
-  const {cartItems , addToCart , removerFromCart} = useContext(StoreContext)
- 
+  const cartItems = useSelector((state)=>state.cart.cartItems)
+  const {isAuthenticated}  = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+
   return (
     <div className='food-item'>
         <div className="food-item-img-cont">
@@ -16,11 +21,21 @@ export default function FoodItem({id , name , price , description ,image , type}
             <span  className={`food-type-badge ${type}`}>{type ==="veg"?<FaLeaf />:<GiChickenOven/>}</span>
             {
               !cartItems[id] 
-              ? <img className='add' src={assets.add_icon_white} onClick={()=>addToCart(id)} alt="" />
+              ? <img className='add' src={assets.add_icon_white} 
+                  onClick={()=>{
+                    if(!isAuthenticated){
+                      toast.error("please login first");
+                      return ;
+                    }
+                  dispatch(addToCart(id)) ; 
+                  toast.success("Added to Cart")}} alt="" 
+                />
               : <div className='food-item-counter'>
-                 <img src={assets.remove_icon_red} onClick={()=>removerFromCart(id)} alt="" />
+                 <img src={assets.remove_icon_red} 
+                    onClick={()=>dispatch(decrement(id))} alt=""
+                  />
                  <p>{cartItems[id]}</p>
-                 <img src={assets.add_icon_green} onClick={()=>addToCart(id)} alt="" />
+                 <img src={assets.add_icon_green} onClick={()=>dispatch(addToCart(id))} alt="" />
               </div>
              }
         </div>

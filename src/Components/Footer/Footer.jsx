@@ -1,6 +1,7 @@
 import React from 'react'
 import './Footer.css'
 import { assets } from '../../assets/assets'
+import Guitar from '../../GSAP/Guitar'
 
 export default function Footer() {
   return (
@@ -10,7 +11,7 @@ export default function Footer() {
         <div> <h2><span class="material-symbols-outlined">
             chef_hat
           </span> Plato</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In provident voluptatibus sapiente repellat sit tempore eum sequi consequatur quas tempora?</p></div>
+          <p>Our Mission is to bring you delicios Food , quickly,freshly and conveniently. while supporting our local restaurants</p></div>
           <div className="footer-social-icons">
             <img src={assets.facebook_icon} alt="" />
             <img src={assets.twitter_icon} alt="" />
@@ -34,7 +35,7 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <hr />
+      <Guitar/>
       <p className='footer-copyright'>Copyright 2020 © Tomato.com - All Right Reserved.</p>
     </div>
   )

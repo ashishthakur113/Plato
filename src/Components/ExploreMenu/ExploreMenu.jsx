@@ -2,6 +2,7 @@ import React from 'react'
 import './ExploreMenu.css'
 import {menu_list} from '../../assets/assets'
 
+
 export default function ExploreMenu({category , setCategory}) {
   return (
     <div className='explore-menu' id='explore-menu'>
@@ -19,7 +20,7 @@ export default function ExploreMenu({category , setCategory}) {
             })
           }
         </div>
-        <hr />
+      <hr />
   
     </div>
   )

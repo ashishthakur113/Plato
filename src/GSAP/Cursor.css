@@ -1,0 +1,13 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor img {
+  width: 50px;      
+  height: 50px;
+  object-fit: contain;
+}
