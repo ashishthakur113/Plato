@@ -2,6 +2,7 @@ import React from 'react'
 import './Footer.css'
 import { GrInstagram , GrLinkedin } from "react-icons/gr";
 import { AiFillTwitterCircle } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 
 export default function Footer() {
@@ -20,9 +21,9 @@ export default function Footer() {
         <div className="footer-content-center">
           <h2>COMPANY</h2>
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Delivery</li>
+            <Link to="/"><li>Home</li></Link>
+            <Link to="/aboutus"><li>About</li></Link>
+            <Link to="/yourOrder"><li>Delivery</li></Link>
             <li>Privacy policy</li>
           </ul>
         </div>
