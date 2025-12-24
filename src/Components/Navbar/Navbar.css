@@ -148,6 +148,9 @@
     width: 8rem; 
     padding-left: 28px;
     }
+    .navbar-username{
+        font-size: 12px;
+    }
 
 
 }

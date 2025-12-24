@@ -87,7 +87,7 @@ export default function PlaceOrder() {
   };
 
   return (
-    <form className="place-order" onClick={handlePlaceOrder}>
+    <form className="place-order" onSubmit={handlePlaceOrder}>
       <div className="place-order-left">
         <p className="title">Delivery Information</p>
 

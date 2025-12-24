@@ -23,7 +23,7 @@ export default function Navbar({ setShowLogin }) {
 
    return (
       <div className='navbar'>
-         <Link to="/" className='logo'><span class="material-symbols-outlined">
+         <Link to="/" className='logo'><span className="material-symbols-outlined">
             chef_hat
          </span>
             <span className='logo-name'>Plato</span></Link>

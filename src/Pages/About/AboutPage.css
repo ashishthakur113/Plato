@@ -269,3 +269,4 @@
   color: #555;
 }
 
+#string { width: 100%; height: 100px; display: flex; align-items: center; justify-content: center; cursor: pointer; user-select: none; background: transparent; } #string svg { width: 100%; max-width: 1000px; height: 200px; overflow: visible; } #string path { stroke: black; stroke-width: 2; stroke-linecap: round; will-change: d; } #string:hover path { filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6)); }
