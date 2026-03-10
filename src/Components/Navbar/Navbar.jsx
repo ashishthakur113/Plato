@@ -6,6 +6,7 @@ import SearchBar from './SearchBar';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart, getTotalCartQuantity } from '../../redux-tookit/CartSlice'
 import { logout } from '../../redux-tookit/AuthSlice';
+import { FaRegUser } from "react-icons/fa";
 
 export default function Navbar({ setShowLogin }) {
 
@@ -31,7 +32,7 @@ export default function Navbar({ setShowLogin }) {
             <Link to="/" onClick={() => setMenu("Home")} className={menu === "Home" ? "active" : ""}>Home</Link>
             <a href='#explore-menu' onClick={() => setMenu("Menu")} className={menu === "Menu" ? "active" : ""}>Menu</a>
             <Link to='/aboutus' onClick={() => setMenu("Mobile-app")} className={menu === "Mobile-app" ? "active" : ""}>About Us</Link>
-            <a href='#footer' onClick={() => setMenu("Contact-us")} className={menu === "Contact-us" ? "active" : ""}>Contact us</a>
+            <a href='#footer' onClick={() => setMenu("Contact-us")} className={menu === "Contact-us" ? "active" : ""}>Contact </a>
          </ul>
          <div className="navbar-right">
             <SearchBar />
@@ -64,7 +65,7 @@ export default function Navbar({ setShowLogin }) {
                </div>
 
             ) : (
-               <button className='sign-in' onClick={() => setShowLogin(true)}>Sign In</button>
+               <button className='sign-in' onClick={() => setShowLogin(true)}><FaRegUser/></button>
             )}
 
          </div>
