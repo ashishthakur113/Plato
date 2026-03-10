@@ -5,7 +5,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    border-bottom: 1px solid black;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px  ;
 }
 
 .navbar .logo{

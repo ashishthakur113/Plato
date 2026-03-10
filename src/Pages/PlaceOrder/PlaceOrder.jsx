@@ -6,48 +6,50 @@ import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
 import { clearCart } from '../../redux-tookit/CartSlice';
+import SEO from '../../Components/SEO/SEO';
 
 export default function PlaceOrder() {
 
   const totalAmount = useSelector(getTotalCartAmount);
   const { user } = useSelector(state => state.auth);
-  const {food_list} = useContext(StoreContext)
+  const { food_list } = useContext(StoreContext)
   const dispatch = useDispatch()
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState(() => {
-    const saved = JSON.parse(localStorage.getItem("deliveryInfo"));
-    return saved || {
-      firstName: "",
-      lastName: "",
-      email: user?.email || "",
-      street: "",
-      area: "",
-      city: "",
-      state: "",
-      zip: "",
-      phone: "",
-    };
-  });
+  const saved = JSON.parse(localStorage.getItem("deliveryInfo"));
+
+  return {
+    firstName: saved?.firstName || "",
+    lastName: saved?.lastName || "",
+    email: user?.email || "",   
+    street: saved?.street || "",
+    area: saved?.area || "",
+    city: saved?.city || "",
+    state: saved?.state || "",
+    zip: saved?.zip || "",
+    phone: saved?.phone || "",
+  };
+});
 
   const cartItems = JSON.parse(localStorage.getItem('carts'))?.[user?.email] || {};
 
   const orderItems = food_list
-    .filter(item => cartItems[item._id]>0)
-    .map(item=>({
-      id:item._id,
-      name:item.name,
+    .filter(item => cartItems[item._id] > 0)
+    .map(item => ({
+      id: item._id,
+      name: item.name,
       image: item.image,
       quantity: cartItems[item._id],
     }));
 
   const handlePlaceOrder = (e) => {
     e.preventDefault()
-;    if (totalAmount === 0) {
-      toast.error("Your cart is empty");
-      return;
-      
-    }
+      ; if (totalAmount === 0) {
+        toast.error("Your cart is empty");
+        return;
+
+      }
 
     const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
 
@@ -55,8 +57,8 @@ export default function PlaceOrder() {
       id: Date.now(),
       date: new Date().toLocaleDateString(),
       total: totalAmount + 2,
-      itemsCount:orderItems.reduce((a,b)=> a+b.quantity ,0),
-      items:  orderItems,
+      itemsCount: orderItems.reduce((a, b) => a + b.quantity, 0),
+      items: orderItems,
       address: {
         firstName: formData.firstName,
         lastName: formData.lastName,
@@ -88,6 +90,10 @@ export default function PlaceOrder() {
 
   return (
     <form className="place-order" onSubmit={handlePlaceOrder}>
+      <SEO
+        title="Place Order - Plato"
+        description="Enter your delivery details and proceed to payment to complete your food order. Fast, fresh, and reliable food delivery from your favorite local restaurants."
+      />
       <div className="place-order-left">
         <p className="title">Delivery Information</p>
 
@@ -122,13 +128,13 @@ export default function PlaceOrder() {
           onChange={handleChange}
           required
         />
-         <input
-            name="area"
-            placeholder="Area"
-            value={formData.area}
-            onChange={handleChange}
-            required
-          />
+        <input
+          name="area"
+          placeholder="Area"
+          value={formData.area}
+          onChange={handleChange}
+          required
+        />
 
         <div className="multi-fields">
           <input
@@ -155,7 +161,7 @@ export default function PlaceOrder() {
             onChange={handleChange}
             required
           />
-         
+
         </div>
 
         <input

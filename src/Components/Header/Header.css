@@ -2,7 +2,7 @@
 .header {
     height: 34vw;
     margin: 30px auto;
-    background: url('/HeaderImage.jpg') no-repeat center;
+    background: url('/HeaderImage1.jpg') no-repeat center;
     background-size: cover;
     position: relative;
     width: 100%;
@@ -24,13 +24,13 @@
 
 .header-contents h2{
     font-weight: bold;
-    color: #d62828;
-    font-size: max(4vw , 22px);
+    color: #d10b0b;
+    font-size: max(3.5vw , 22px);
 }
 
 .header-contents p{
     color: #d9d9d9;
-    font-size: 1.3vw;
+    font-size: 1.2vw;
     font-weight: bold;
 }
 

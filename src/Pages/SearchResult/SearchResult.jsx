@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import './SearchResult.css'
 import { StoreContext } from '../../context/StoreContext'
-import { Link } from 'react-router-dom'
 import FoodItem from '../../Components/FoodItem/FoodItem'
+import SEO from '../../Components/SEO/SEO'
 
 export default function SearchResult() {
 
@@ -19,23 +19,27 @@ export default function SearchResult() {
   }
 
   const normalizedSearch = searchTerm
-  .toLowerCase()
-  .replace(/\s|-/g, "");
+    .toLowerCase()
+    .replace(/\s|-/g, "");
 
   const filteredFood = food_list.filter((item) => {
-  const name = item.name.toLowerCase();
-  const category = item.category.toLowerCase();
-  const type = item.type.toLowerCase().replace("-", ""); 
+    const name = item.name.toLowerCase();
+    const category = item.category.toLowerCase();
+    const type = item.type.toLowerCase().replace("-", "");
 
-  return (
-    name.includes(normalizedSearch) ||
-    category.includes(normalizedSearch) ||
-    type === normalizedSearch   
-  );
-});
+    return (
+      name.includes(normalizedSearch) ||
+      category.includes(normalizedSearch) ||
+      type === normalizedSearch
+    );
+  });
 
   return (
     <div className="search-result">
+      <SEO
+        title={`Search Results for "${searchTerm}" | Plato Food Delivery`}
+        description={`Find delicious ${searchTerm || "food"} from top local restaurants on Plato. Browse dishes, explore categories, and order fresh meals delivered fast to your doorstep.`}
+      />
       <h2>Search Results for "{searchTerm}"</h2>
 
       {filteredFood.length > 0 ? (
@@ -47,7 +51,7 @@ export default function SearchResult() {
               price={item.price}
               description={item.description}
               image={item.image}
-              type={item.type}   
+              type={item.type}
             />
           ))}
         </div>

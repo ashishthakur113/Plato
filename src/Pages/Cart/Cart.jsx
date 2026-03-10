@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTotalCartAmount, removerFromCart, decrement, increment, saveCart } from '../../redux-tookit/CartSlice'
 import { toast } from 'react-toastify';
 import { MdOutlineDeleteOutline } from "react-icons/md";
+import SEO from '../../Components/SEO/SEO'
+
 
 export default function Cart() {
 
@@ -15,13 +17,17 @@ export default function Cart() {
   const { food_list } = useContext(StoreContext)
   const navigate = useNavigate()
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(saveCart());
-  },[cartItems]);
+  }, [cartItems]);
 
-  
+
   return (
     <div className='cart'>
+      <SEO
+        title="Your Cart | Review Items - Plato"
+        description="Review the items in your cart, update quantities, and proceed to checkout to get fresh and delicious meals delivered quickly to your doorstep."
+      />
       <div className="cart-items">
         <div className="cart-items-title">
           <p>Items</p>
@@ -47,14 +53,15 @@ export default function Cart() {
                         if (cartItems[item._id] > 1) dispatch(decrement(item._id));
                       }}>-</button>
                       <span className='item-qty'>{cartItems[item._id]}</span>
-                      <button className='cart-btn increment' onClick={()=>dispatch(increment(item._id))}>+</button>
+                      <button className='cart-btn increment' onClick={() => dispatch(increment(item._id))}>+</button>
                     </div>
                     <p>$ {item.price * cartItems[item._id]}</p>
-                    <p onClick={() => {dispatch(removerFromCart(item._id)) ; toast.info("Item Removed From Cart")}} className='cross'><MdOutlineDeleteOutline style={{color:"red" ,marginLeft:"20px" ,fontSize:"20px"}}/></p>
+                    <p onClick={() => { dispatch(removerFromCart(item._id)); toast.info("Item Removed From Cart") }} className='cross'><MdOutlineDeleteOutline style={{ color: "red", marginLeft: "20px", fontSize: "20px" }} /></p>
                   </div>
                   <hr />
                 </div>
-              )}
+              )
+            }
           })}
       </div>
       <div className="cart-bottom">

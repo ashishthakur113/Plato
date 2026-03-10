@@ -1,6 +1,6 @@
 import React from 'react';
-import dish from '../../../public/dish.avif';
-import cook from '../../../public/cook.png';
+import FreshFood1 from '/public/FreshFood1.jpg'
+import cook1 from '/public/cook1.jpeg';
 import './AboutPage.css';
 import { TbDeviceMobileSearch } from "react-icons/tb";
 import { MdOutlineDeliveryDining } from "react-icons/md";
@@ -10,6 +10,7 @@ import { TiTickOutline } from "react-icons/ti";
 import { BsRocketTakeoff } from "react-icons/bs";
 import { FaBowlFood } from "react-icons/fa6";
 import { SiIfood } from "react-icons/si";
+import SEO from '../../Components/SEO/SEO';
 
 export default function AboutPage() {
 
@@ -46,8 +47,13 @@ export default function AboutPage() {
 
     return (
         <div className="about-container">
+            <SEO
+                title="About Plato | Fast & Fresh Food Delivery Service"
+                description="Learn about Plato, our mission to deliver fresh, delicious food quickly from the best local
+                 restaurants. Discover how we make food ordering simple, fast, and reliable."
+            />
             <div className='about-hero'>
-                <img src={dish} alt="Delicious food" />
+                <img src={FreshFood1} alt="Delicious food" />
             </div>
 
             <div className="about-overlay">
@@ -70,7 +76,7 @@ export default function AboutPage() {
                     </p>
                 </div>
                 <div className='inner-right'>
-                    <img src={cook} alt="" />
+                    <img src={cook1} alt="cook_image" />
                 </div>
             </div>
 

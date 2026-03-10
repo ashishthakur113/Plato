@@ -10,7 +10,6 @@
   width: 100%;
   height: 64vh;
   overflow: hidden;
-  border-radius: 10px;
 }
 
 .about-hero img {
@@ -18,12 +17,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+   border-radius: 20px;
 }
 
 
 .about-overlay {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 12%;
   transform: translateY(-50%);
   max-width: 500px;
@@ -36,14 +36,15 @@
   margin-bottom: 12px;
   font-weight: 500;
   letter-spacing: 2px;
-  color: green;
+  color: black;
 }
 
 .about-overlay p {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.2;
   opacity: 0.95;
-  color: gray;
+  color: rgb(75, 166, 87);
 }
 
 /* Responsive */

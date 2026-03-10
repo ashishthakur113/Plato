@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './OrderHistory.css';
+import SEO from '../../Components/SEO/SEO';
 
 export default function OrderHistory() {
   const [orders, setOrders] = useState([]);
@@ -15,19 +16,23 @@ export default function OrderHistory() {
 
   return (
     <div className="order-history">
+      <SEO
+        title="Your Orders | Order History - Plato"
+        description="View your food order history, track past orders, and review the meals delivered to you from your favorite local restaurants."
+      />
       <h2>Your Orders</h2>
 
       {orders.map(order => (
         <div key={order.id} className="order-card">
 
-          
+
           <div className="order-meta">
             <p><b>Order ID:</b> {order.id}</p>
             <p><b>Date:</b> {order.date}</p>
             <p className="status pending">Pending</p>
           </div>
 
-       
+
           <div className="order-items">
             {(order.items || []).map(item => (
               <div key={item.id} className="order-item">
@@ -40,7 +45,7 @@ export default function OrderHistory() {
             ))}
           </div>
 
-        
+
           <div className="order-total">
             <b>Total:</b> $ {order.total}
           </div>
