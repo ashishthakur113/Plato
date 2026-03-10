@@ -11,7 +11,7 @@ The platform focuses on speed, simplicity, and a smooth user experience — from
 
 ## 🚀 Live Demo
 
-🔗 [View the live website](https://plato-foodwebsite.netlify.app/)
+🔗 [View the live website](https://plato-fooddelivery.vercel.app/)
 
 ---
 
